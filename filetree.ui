@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>fileTree</class>
+ <widget class="QDialog" name="fileTree">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>574</width>
+    <height>472</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,20">
+     <item>
+      <widget class="QLabel" name="fileLabel">
+       <property name="text">
+        <string>File list:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="fileTreeWidget" name="treeWidget"/>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>fileTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>filetreewidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
