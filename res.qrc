@@ -34,5 +34,7 @@
         <file>icon/basic2.png</file>
         <file>icon/convert.png</file>
         <file>icon/filter.png</file>
+        <file>icon/activate_off.png</file>
+        <file>icon/activate_on.png</file>
     </qresource>
 </RCC>

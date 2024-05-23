@@ -109,3 +109,9 @@ QSlider::handle:horizontal
     color: white;
     font-weight: bold;
 }
+
+#toolWidget QCheckBox::indicator
+{
+    width: 0px;
+    height: 0px;
+}

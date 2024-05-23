@@ -1,86 +1,83 @@
 #include "imgprocess.h"
 imgProcess::imgProcess(QObject *parent)
     : QObject{parent}
-{}
-
-QImage imgProcess::Brightness(QImage *img, const int &brightness)
 {
-    QImage newImg = *img;
-    for (int y = 0; y < newImg.height(); ++y) {
-        for (int x = 0; x < newImg.width(); ++x) {
-            QColor color = newImg.pixelColor(x, y);
-
-            int r = color.red() + brightness;
-            int g = color.green() + brightness;
-            int b = color.blue() + brightness;
-
-            r = qBound(0, r, 255);
-            g = qBound(0, g, 255);
-            b = qBound(0, b, 255);
-
-            newImg.setPixelColor(x, y, QColor(r, g, b));
-        }
-    }
-    return newImg;
+    ResetAllValue();
 }
 
-QImage imgProcess::Contrast(QImage *img, const int &contrast)
+void imgProcess::ResetAllValue()
 {
-    QImage newImg = *img;
-    for (int y = 0; y < newImg.height(); ++y) {
-        for (int x = 0; x < newImg.width(); ++x) {
-            QColor color = newImg.pixelColor(x, y);
-
-            int r = (color.red() - 127) * contrast / 50 + 127;
-            int g = (color.green() - 127) * contrast / 50 + 127;
-            int b = (color.blue() - 127) * contrast / 50 + 127;
-
-            r = qBound(0, r, 255);
-            g = qBound(0, g, 255);
-            b = qBound(0, b, 255);
-
-            newImg.setPixelColor(x, y, QColor(r, g, b));
-        }
-    }
-    return newImg;
+    _brightnessValue = 0;
+    _contrastValue = 100;
+    _thresholdValue = 127;
+    _isGray = false;
+    _isRGBtoGrayActivated = false;
+    _isThresholdActivated = false;
 }
 
-QImage imgProcess::RGBtoGray(QImage *img)
+void imgProcess::Brightness(int &r, int &g, int &b)
 {
-    QImage newImg = *img;
-    for (int y = 0; y < newImg.height(); ++y) {
-        for (int x = 0; x < newImg.width(); ++x) {
-            QColor color = newImg.pixelColor(x, y);
-
-            int gray = color.red() * 0.299 + color.green() * 0.587 + color.blue() * 0.114;
-
-            gray = qBound(0, gray, 255);
-
-            newImg.setPixelColor(x, y, QColor(gray, gray, gray));
-        }
-    }
-    return newImg;
+    r = qBound(0, r + _brightnessValue, 255);
+    g = qBound(0, g + _brightnessValue, 255);
+    b = qBound(0, b + _brightnessValue, 255);
 }
 
-QImage imgProcess::GraytoRGB(QImage *img)
+void imgProcess::Contrast(int &r, int &g, int &b)
 {
-    QImage newImg = *img;
-    for (int y = 0; y < newImg.height(); ++y) {
-        for (int x = 0; x < newImg.width(); ++x) {
-            QColor color = newImg.pixelColor(x, y);
+    r = qBound(0, int((r - 127) * _contrastValue / 100.0 + 0.5) + 127, 255);
+    g = qBound(0, int((g - 127) * _contrastValue / 100.0 + 0.5) + 127, 255);
+    b = qBound(0, int((b - 127) * _contrastValue / 100.0 + 0.5) + 127, 255);
+}
+
+void imgProcess::RGBtoGray(int &r, int &g, int &b)
+{
+    int gray = (r * 0.299 + g * 0.587 + b * 0.114) + 0.5;
+    gray = qBound(0, gray, 255);
+    r = g = b = gray;
+}
+
+void imgProcess::GraytoRGB()
+{
+    for (int y = 0; y < _newImg.height(); ++y) {
+        for (int x = 0; x < _newImg.width(); ++x) {
+            QColor color = _newImg.pixelColor(x, y);
             int r = color.red();
             int g = color.green();
             int b = color.blue();
-            qDebug() << r << ' ' << g << ' ' << b;
-            newImg.setPixelColor(x, y, QColor(r, g, b));
+            _newImg.setPixelColor(x, y, QColor(r, g, b));
         }
     }
-    return newImg;
 }
 
-QImage imgProcess::GraytoBW(QImage *img, const int &threshold)
+void imgProcess::Threshold(int &r, int &g, int &b)
 {
-    return *img;
+    if (!(_isGray || _isRGBtoGrayActivated))
+        return;
+
+    r = g = b = (r >= _thresholdValue ? 255 : 0);
+}
+
+QImage imgProcess::AllOperation(QImage *img)
+{
+    _newImg = *img;
+    int r, g, b;
+    QColor color;
+    for (int y = 0; y < _newImg.height(); ++y) {
+        for (int x = 0; x < _newImg.width(); ++x) {
+            color = _newImg.pixelColor(x, y);
+            r = color.red(), g = color.green(), b = color.blue();
+
+            Brightness(r, g, b);
+            Contrast(r, g, b);
+            if (_isRGBtoGrayActivated)
+                RGBtoGray(r, g, b);
+            if (_isThresholdActivated)
+                Threshold(r, g, b);
+            _newImg.setPixelColor(x, y, QColor(r, g, b));
+        }
+    }
+    qDebug() << "123hihiih";
+    return _newImg;
 }
 
 

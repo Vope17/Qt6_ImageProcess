@@ -18,7 +18,6 @@ public:
 private:
     Ui::toolWidget *ui;
     QImage *_img;
-    QImage _newImg;
     imgProcess *_ip = new imgProcess(this);
 
     void initIcons();
@@ -30,18 +29,20 @@ private slots:
     void SlotChangeWidgetII();
     void SlotChangeWidgetIII();
 
-    void SlotChangeBrightnessLabelValue(int);
-    void SlotChangeContrastLabelValue(int);
-
     void SlotChangeBrightness(int);
     void SlotChangeContrast(int);
     void SlotConvertRGBtoGray();
-    void SlotConvertGraytoRGB();
-    void SlotChangeGraytoBWLabelValue(int);
-    void SlotConvertGraytoBW(int);
+    void SlotChangeThreshold(int);
+
+    void SlotCheckRGBtoGray(Qt::CheckState);
+    void SlotCheckThreshold(Qt::CheckState);
+
+private:
+    QImage _newImg;
+    QPixmap _activate_on;
+    QPixmap _activate_off;
 
 signals:
-    void SigUpdateImg(QImage);
     void SigUpdatePixmap(QImage);
 };
 

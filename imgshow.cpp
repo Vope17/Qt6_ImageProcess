@@ -14,6 +14,11 @@ imgShow::~imgShow()
     delete ui;
 }
 
+QPixmap imgShow::GetPixmap()
+{
+    return _pixmap;
+}
+
 void imgShow::SlotShowSelectedImg(const QString &path)
 {
     _selectedPath = path;
@@ -26,10 +31,7 @@ void imgShow::SlotShowSelectedImg(const QString &path)
 
 void imgShow::SlotUpdatePixmap(QImage img)
 {
+    _pixmap = QPixmap::fromImage(img);
     ui->label->setPixmap(QPixmap::fromImage(img));
 }
 
-void imgShow::SlotUpdateImg(QImage img)
-{
-    *_img = img;
-}

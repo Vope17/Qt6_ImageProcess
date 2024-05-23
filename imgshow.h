@@ -14,7 +14,7 @@ class imgShow : public QDialog
 public:
     explicit imgShow(QWidget *parent = nullptr);
     ~imgShow();
-
+    QPixmap GetPixmap();
 private:
     Ui::imgShow *ui;
     QString _selectedPath;
@@ -24,7 +24,6 @@ private:
 public slots:
     void SlotShowSelectedImg(const QString &path);
     void SlotUpdatePixmap(QImage);
-    void SlotUpdateImg(QImage);
 
 signals:
     void sendImg(QImage*);

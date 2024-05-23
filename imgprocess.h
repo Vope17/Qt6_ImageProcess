@@ -4,27 +4,39 @@
 #include <QObject>
 #include <QImage>
 #include <QDebug>
+#include <QLabel>
 class imgProcess : public QObject
 {
     Q_OBJECT
 public:
     explicit imgProcess(QObject *parent = nullptr);
-    QImage Brightness(QImage*, const int&);
-    QImage Contrast(QImage*, const int&);
-    void Negative(QImage);
-    void LeftFlip(QImage);
-    void RightFlip(QImage);
-    void VerticalFlip(QImage);
-    void HorizontalFlip(QImage);
-    void Equalization(QImage);
-    void BrightAdjust(QImage);
-    void Threshold(QImage);
-    void OtusThreshold(QImage);
+    void ResetAllValue();
+    void Brightness(int&, int&, int&);
+    void Contrast(int&, int&, int&);
+    void Negative();
+    void LeftFlip();
+    void RightFlip();
+    void VerticalFlip();
+    void HorizontalFlip();
+    void Equalization();
+    void BrightAdjust();
+    void Threshold(int&, int&, int&);
+    void OtusThreshold();
 
-    QImage RGBtoGray(QImage*);
-    QImage GraytoRGB(QImage*);
-    QImage GraytoBW(QImage*, const int&);
+    void RGBtoGray(int&, int&, int&);
+    void GraytoRGB();
+    void GraytoBW(const int&);
 
+    QImage AllOperation(QImage*);
+
+    int _brightnessValue;
+    int _contrastValue;
+    int _thresholdValue;
+    bool _isGray;
+    bool _isRGBtoGrayActivated;
+    bool _isThresholdActivated;
+private:
+    QImage _newImg;
 };
 
 #endif // IMGPROCESS_H

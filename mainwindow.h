@@ -28,6 +28,7 @@ protected:
 private slots:
     void SlotCreateFile(bool);
     void SlotOpenFile(bool);
+    void SlotSaveAsNewFile(bool);
 
 signals:
     void SigOpenFile(const QString &path);

@@ -19,29 +19,20 @@ MainWindow::MainWindow(QWidget *parent)
     QMenu *fileMenu = menuBar()->addMenu(tr("檔案(&F)"));
     QAction *createAction = new QAction(QIcon(":/icon/createpro.png"),tr("新專案"), this);
     createAction->setShortcut(tr("Ctrl+n"));
-    QAction *openAction = new QAction(QIcon(":/icon/openpro.png"), "開啟專案", this);
+    QAction *openAction = new QAction(QIcon(":/icon/openpro.png"), tr("開啟專案"), this);
     openAction->setShortcut(tr("Ctrl+o"));
+    QAction *saveAsNewFileAction = new QAction(tr("另存新檔"), this);
+    saveAsNewFileAction->setShortcut(tr("Ctrl+s"));
     QAction *exitAction = new QAction("離開程式", this);
     fileMenu->addAction(createAction);
     fileMenu->addAction(openAction);
+    fileMenu->addAction(saveAsNewFileAction);
     fileMenu->addAction(exitAction);
 
-
-    QMenu *settingMenu = menuBar()->addMenu(tr("設置(&S)"));
-    QAction *bgmAction = new QAction(tr("音樂"), this);
-    settingMenu->addAction(bgmAction);
-
-    QMenu *statisticMenu = menuBar()->addMenu(tr("統計"));
-    QAction *quantifyAction = new QAction("量化", this);
-
-
-    QMenu *BasicMenu = menuBar()->addMenu("基本操作");
-
-    statisticMenu->addAction(quantifyAction);
-
-    // connects
+    // Menu connects
     connect(createAction, &QAction::triggered, this, &MainWindow::SlotCreateFile);
     connect(openAction, &QAction::triggered, this, &MainWindow::SlotOpenFile);
+    connect(saveAsNewFileAction, &QAction::triggered, this, &MainWindow::SlotSaveAsNewFile);
     _fileTree = new fileTree();
     ui->fileTreeLayout->addWidget(_fileTree);
     QTreeWidget *treeWidget = dynamic_cast<fileTree*>(_fileTree)->GetTreeWidget();
@@ -106,5 +97,17 @@ void MainWindow::SlotOpenFile(bool)
     QString importPath = fileNames.at(0);
     qDebug() << importPath;
     emit SigOpenFile(importPath);
+}
+
+void MainWindow::SlotSaveAsNewFile(bool)
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save as new file"), QDir::homePath(), tr("Images (*.png *.jpg *.bmp);;All Files (*)"));
+    if (fileName.isEmpty())
+        return;
+    auto *fileImgShow = dynamic_cast<imgShow*>(_imgShow);
+    QPixmap pm = fileImgShow->GetPixmap();
+    QImage img = pm.toImage();
+    if (!img.save(fileName))
+        return;
 }
 

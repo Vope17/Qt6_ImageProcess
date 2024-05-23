@@ -86,7 +86,7 @@
      <item>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="currentIndex">
-        <number>2</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="filters">
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -243,6 +243,16 @@
            <property name="verticalSpacing">
             <number>15</number>
            </property>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>( 0.299 * R + 0.587 * G + 0.114 * B)</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
            <item row="4" column="0">
             <widget class="QPushButton" name="pushButton_2">
              <property name="text">
@@ -250,20 +260,10 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="2">
-            <widget class="QLabel" name="GraytoBWValue">
+           <item row="2" column="2">
+            <widget class="QLabel" name="thresholdValue">
              <property name="text">
               <string>127</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>( 0.299 * R + 0.587 * G + 0.114 * B)</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -283,24 +283,10 @@
              </property>
             </spacer>
            </item>
-           <item row="0" column="0">
-            <widget class="QPushButton" name="RGBtoGray">
-             <property name="text">
-              <string>RGBtoGray</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QPushButton" name="GraytoBW">
-             <property name="text">
-              <string>GraytoBW</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QSlider" name="GraytoBWSlider">
+           <item row="2" column="1">
+            <widget class="QSlider" name="thresholdSlider">
              <property name="maximum">
-              <number>255</number>
+              <number>256</number>
              </property>
              <property name="value">
               <number>127</number>
@@ -310,20 +296,17 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="0">
-            <widget class="QPushButton" name="GraytoRGB">
+           <item row="2" column="0">
+            <widget class="QCheckBox" name="thresholdCheckBox">
              <property name="text">
-              <string>GraytoRGB</string>
+              <string/>
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="label_16">
+           <item row="0" column="0">
+            <widget class="QCheckBox" name="RGBtoGrayCheckBox">
              <property name="text">
-              <string>R = G = B = Gray</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <string/>
              </property>
             </widget>
            </item>
@@ -373,10 +356,13 @@
            <item row="7" column="3">
             <widget class="QSlider" name="contrastSlider">
              <property name="maximum">
-              <number>100</number>
+              <number>200</number>
+             </property>
+             <property name="singleStep">
+              <number>10</number>
              </property>
              <property name="value">
-              <number>50</number>
+              <number>100</number>
              </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -386,7 +372,7 @@
            <item row="7" column="4">
             <widget class="QLabel" name="contrastValue">
              <property name="text">
-              <string>50</string>
+              <string>1.0</string>
              </property>
             </widget>
            </item>

@@ -46,6 +46,7 @@ C:/Users/kkeea/Desktop/Qt/new_imgproc/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   C:/Qt/6.7.0/mingw_64/include/QtCore/qglobalstatic.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qhash.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qhashfunctions.h \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/qiodevice.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qiodevicebase.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qiterable.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qiterator.h \
@@ -113,6 +114,7 @@ C:/Users/kkeea/Desktop/Qt/new_imgproc/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   C:/Qt/6.7.0/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qvarlengtharray.h \
@@ -133,19 +135,24 @@ C:/Users/kkeea/Desktop/Qt/new_imgproc/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/
   C:/Qt/6.7.0/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpalette.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpolygon.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qrgba64.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qtguiglobal.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
