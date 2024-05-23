@@ -80,20 +80,8 @@ QImage imgProcess::GraytoRGB(QImage *img)
 
 QImage imgProcess::GraytoBW(QImage *img, const int &threshold)
 {
-    QImage newImg = *img;
-    for (int y = 0; y < newImg.height(); ++y) {
-        for (int x = 0; x < newImg.width(); ++x) {
-            QColor color = newImg.pixelColor(x, y);
-
-            int gray = (color.red() * 0.299 + color.green() * 0.587 + color.blue() * 0.114) + 0.5;
-
-            gray = qBound(0, gray, 255);
-            gray = (gray > threshold ? 255 : 0);
-
-            newImg.setPixelColor(x, y, QColor(gray, gray, gray));
-        }
-    }
-    return newImg;
+    return *img;
 }
+
 
 

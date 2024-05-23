@@ -30,8 +30,6 @@ private slots:
     void SlotChangeWidgetII();
     void SlotChangeWidgetIII();
 
-    void SlotUpdateImg();
-
     void SlotChangeBrightnessLabelValue(int);
     void SlotChangeContrastLabelValue(int);
 
@@ -43,6 +41,7 @@ private slots:
     void SlotConvertGraytoBW(int);
 
 signals:
+    void SigUpdateImg(QImage);
     void SigUpdatePixmap(QImage);
 };
 

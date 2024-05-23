@@ -86,7 +86,7 @@
      <item>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="currentIndex">
-        <number>1</number>
+        <number>2</number>
        </property>
        <widget class="QWidget" name="filters">
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -372,6 +372,12 @@
            </item>
            <item row="7" column="3">
             <widget class="QSlider" name="contrastSlider">
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="value">
+              <number>50</number>
+             </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -380,7 +386,7 @@
            <item row="7" column="4">
             <widget class="QLabel" name="contrastValue">
              <property name="text">
-              <string>0</string>
+              <string>50</string>
              </property>
             </widget>
            </item>

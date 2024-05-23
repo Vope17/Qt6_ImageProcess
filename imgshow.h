@@ -20,12 +20,11 @@ private:
     QString _selectedPath;
     QPixmap _pixmap;
     QImage *_img;
-    QImage *_originalImg;
 
 public slots:
     void SlotShowSelectedImg(const QString &path);
     void SlotUpdatePixmap(QImage);
-    void SlotUpdateImg();
+    void SlotUpdateImg(QImage);
 
 signals:
     void sendImg(QImage*);

@@ -25,8 +25,6 @@ public:
     QImage GraytoRGB(QImage*);
     QImage GraytoBW(QImage*, const int&);
 
-private:
-    int oldBrightnessValue;
 };
 
 #endif // IMGPROCESS_H

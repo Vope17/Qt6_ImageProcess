@@ -14,7 +14,6 @@ toolWidget::toolWidget(QWidget *parent)
 
     connect(ui->brightSlider, &QSlider::valueChanged, this, &toolWidget::SlotChangeBrightnessLabelValue);
     connect(ui->brightSlider, &QSlider::valueChanged, this, &toolWidget::SlotChangeBrightness);
-    connect(ui->brightSlider, &QSlider::sliderReleased, this, &toolWidget::SlotUpdateImg);
 
     connect(ui->contrastSlider, &QSlider::valueChanged, this, &toolWidget::SlotChangeContrastLabelValue);
     connect(ui->contrastSlider, &QSlider::valueChanged, this, &toolWidget::SlotChangeContrast);
@@ -54,7 +53,11 @@ void toolWidget::initIcons()
 
 void toolWidget::SlotGetImage(QImage *img)
 {
-    _img = img;
+    *_img = *img;
+    ui->brightSlider->setValue(0);
+    ui->brightnessValue->setText("0");
+    ui->contrastSlider->setValue(50);
+    ui->contrastValue->setText("50");
 }
 
 void toolWidget::SlotChangeWidgetI()
@@ -72,10 +75,6 @@ void toolWidget::SlotChangeWidgetIII()
     ui->stackedWidget->setCurrentWidget(ui->convert);
 }
 
-void toolWidget::SlotUpdateImg()
-{
-    *_img = this->_newImg;
-}
 
 void toolWidget::SlotChangeBrightnessLabelValue(int value)
 {
@@ -95,19 +94,19 @@ void toolWidget::SlotChangeBrightness(int value)
 
 void toolWidget::SlotChangeContrast(int value)
 {
-    QImage newImg = _ip->Contrast(_img, value);
+    _newImg = _ip->Contrast(_img, value);
     emit SigUpdatePixmap(_newImg);
 }
 
 void toolWidget::SlotConvertRGBtoGray()
 {
-    QImage newImg = _ip->RGBtoGray(_img);
+    _newImg = _ip->RGBtoGray(_img);
     emit SigUpdatePixmap(_newImg);
 }
 
 void toolWidget::SlotConvertGraytoRGB()
 {
-    QImage newImg = _ip->GraytoRGB(_img);
+    _newImg = _ip->GraytoRGB(_img);
     emit SigUpdatePixmap(_newImg);
 }
 
@@ -118,6 +117,6 @@ void toolWidget::SlotChangeGraytoBWLabelValue(int value)
 
 void toolWidget::SlotConvertGraytoBW(int value)
 {
-    QImage newImg = _ip->GraytoBW(_img, value);
+    _newImg = _ip->GraytoBW(_img, value);
     emit SigUpdatePixmap(_newImg);
 }
