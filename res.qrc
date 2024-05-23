@@ -30,5 +30,9 @@
         <file>icon/right.png</file>
         <file>icon/show.jpg</file>
         <file>icon/slideshow.png</file>
+        <file>icon/basic.png</file>
+        <file>icon/basic2.png</file>
+        <file>icon/convert.png</file>
+        <file>icon/filter.png</file>
     </qresource>
 </RCC>

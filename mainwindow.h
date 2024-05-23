@@ -21,6 +21,7 @@ private:
     Ui::MainWindow *ui;
     QWidget *_fileTree;
     QWidget *_imgShow;
+    QWidget *_toolWidget;
 
 protected:
     virtual void resizeEvent(QResizeEvent *event) override;

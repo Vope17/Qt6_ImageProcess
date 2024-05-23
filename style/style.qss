@@ -79,7 +79,15 @@ QTreeView::branch:closed:has-children:!has-siblings,
 QTreeView::branch:closed:has-children:has-siblings
 {image: url(:/icon/right.png);}
 
-/* imgArea */
+QWidget#toolWidget
+{
+    border-color: red;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    padding: 10px;
+    background: rgb(64, 66, 68);
+}
+
 imgShow
 {
     border-color: #9F9F9F;
@@ -87,4 +95,17 @@ imgShow
     border-width: 1px 1px 1px 1px;
     padding: 10px;
     background: rgb(64, 66, 68);
+}
+
+QSlider::handle:horizontal
+{
+    border-radius: 5px;
+    width: 11px; height: 11px;
+    background: white;
+}
+
+#toolWidget QLabel
+{
+    color: white;
+    font-weight: bold;
 }

@@ -76,13 +76,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 79,
+				"line" : 81,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 62,
+				"line" : 64,
 				"parent" : 0
 			},
 			{
@@ -387,18 +387,19 @@
 				29,
 				31,
 				34,
-				43
+				37,
+				47
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "new_imgproc_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "new_imgproc_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "new_imgproc_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "new_imgproc::@6890427a1f51a3e7e1df",
@@ -522,7 +523,8 @@
 				29,
 				31,
 				34,
-				43
+				37,
+				47
 			]
 		},
 		{
@@ -542,13 +544,15 @@
 				28,
 				30,
 				33,
-				35,
 				36,
-				37,
 				38,
 				39,
 				40,
-				41
+				41,
+				42,
+				43,
+				44,
+				45
 			]
 		},
 		{
@@ -563,15 +567,16 @@
 				17,
 				27,
 				32,
-				42
+				35,
+				46
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				44,
-				45
+				48,
+				49
 			]
 		}
 	],
@@ -758,13 +763,29 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "imgbutton.h",
+			"path" : "toolwidget.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "imgbutton.cpp",
+			"path" : "toolwidget.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "toolwidget.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "imgprocess.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "imgprocess.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -807,6 +828,12 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/new_imgproc_autogen/include/ui_imgshow.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/new_imgproc_autogen/include/ui_toolwidget.h",
 			"sourceGroupIndex" : 1
 		},
 		{

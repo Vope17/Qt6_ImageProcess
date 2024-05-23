@@ -292,6 +292,12 @@
 			null
 		],
 		[
+			"C:/Users/kkeea/Desktop/Qt/new_imgproc/imgprocess.h",
+			"MU",
+			"EWIEGA46WW/moc_imgprocess.cpp",
+			null
+		],
+		[
 			"C:/Users/kkeea/Desktop/Qt/new_imgproc/imgshow.h",
 			"MU",
 			"EWIEGA46WW/moc_imgshow.cpp",
@@ -319,6 +325,12 @@
 			"C:/Users/kkeea/Desktop/Qt/new_imgproc/removefiledialog.h",
 			"MU",
 			"EWIEGA46WW/moc_removefiledialog.cpp",
+			null
+		],
+		[
+			"C:/Users/kkeea/Desktop/Qt/new_imgproc/toolwidget.h",
+			"MU",
+			"EWIEGA46WW/moc_toolwidget.cpp",
 			null
 		],
 		[
@@ -413,6 +425,7 @@
 			"MU",
 			null
 		],
+		[ "C:/Users/kkeea/Desktop/Qt/new_imgproc/imgprocess.cpp", "MU", null ],
 		[ "C:/Users/kkeea/Desktop/Qt/new_imgproc/imgshow.cpp", "MU", null ],
 		[ "C:/Users/kkeea/Desktop/Qt/new_imgproc/main.cpp", "MU", null ],
 		[ "C:/Users/kkeea/Desktop/Qt/new_imgproc/mainwindow.cpp", "MU", null ],
@@ -427,6 +440,7 @@
 			"MU",
 			null
 		],
+		[ "C:/Users/kkeea/Desktop/Qt/new_imgproc/toolwidget.cpp", "MU", null ],
 		[ "C:/Users/kkeea/Desktop/Qt/new_imgproc/wizard.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

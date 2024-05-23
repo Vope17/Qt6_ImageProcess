@@ -38,6 +38,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         removefiledialog.h removefiledialog.cpp removefiledialog.ui
         openfilethread.h openfilethread.cpp
         imgshow.h imgshow.cpp imgshow.ui
+        toolwidget.h toolwidget.cpp toolwidget.ui
+        imgprocess.h imgprocess.cpp
 
 
     )

@@ -19,9 +19,16 @@ private:
     Ui::imgShow *ui;
     QString _selectedPath;
     QPixmap _pixmap;
+    QImage *_img;
+    QImage *_originalImg;
 
 public slots:
     void SlotShowSelectedImg(const QString &path);
+    void SlotUpdatePixmap(QImage);
+    void SlotUpdateImg();
+
+signals:
+    void sendImg(QImage*);
 };
 
 #endif // IMGSHOW_H

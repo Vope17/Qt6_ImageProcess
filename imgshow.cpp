@@ -6,6 +6,7 @@ imgShow::imgShow(QWidget *parent)
     , ui(new Ui::imgShow)
 {
     ui->setupUi(this);
+    _img = new QImage;
 }
 
 imgShow::~imgShow()
@@ -20,5 +21,18 @@ void imgShow::SlotShowSelectedImg(const QString &path)
     //auto width = this->width() - 20;
     //auto height = this->height() - 20;
     //_pixmap = _pixmap.scaled(width, height, Qt::KeepAspectRatio);
+    *_img = _pixmap.toImage();
     ui->label->setPixmap(_pixmap);
+    emit sendImg(_img);
+}
+
+
+void imgShow::SlotUpdatePixmap(QImage img)
+{
+    ui->label->setPixmap(QPixmap::fromImage(img));
+}
+
+void imgShow::SlotUpdateImg()
+{
+
 }

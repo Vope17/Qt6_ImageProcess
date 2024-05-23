@@ -8,6 +8,7 @@
 #include "filetree.h"
 #include "filetreewidget.h"
 #include "imgshow.h"
+#include "toolwidget.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -52,7 +53,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->imgLayout->addWidget(_imgShow);
     auto *fileImgShow = dynamic_cast<imgShow*>(_imgShow);
     connect(_fileTreeWidget, &fileTreeWidget::SigShowSelectedImg, fileImgShow, &imgShow::SlotShowSelectedImg);
+
     // toolArea
+    _toolWidget = new toolWidget();
+    ui->toolLayout->addWidget(_toolWidget);
+    toolWidget *_lowToolWidget = dynamic_cast<toolWidget*>(_toolWidget);
+    connect(fileImgShow, &imgShow::sendImg, _lowToolWidget, &toolWidget::SlotGetImage);
+    connect(_lowToolWidget, &toolWidget::SigUpdatePixmap, fileImgShow, &imgShow::SlotUpdatePixmap);
 }
 
 MainWindow::~MainWindow()
@@ -100,3 +107,4 @@ void MainWindow::SlotOpenFile(bool)
     qDebug() << importPath;
     emit SigOpenFile(importPath);
 }
+

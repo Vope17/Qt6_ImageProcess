@@ -1,4 +1,6 @@
 new_imgproc_autogen/timestamp: \
+	C:/Qt/6.7.0/mingw_64/include/QtCore/QDebug \
+	C:/Qt/6.7.0/mingw_64/include/QtCore/QObject \
 	C:/Qt/6.7.0/mingw_64/include/QtCore/QThread \
 	C:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
 	C:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
@@ -125,6 +127,7 @@ new_imgproc_autogen/timestamp: \
 	C:/Qt/6.7.0/mingw_64/include/QtCore/qxptype_traits.h \
 	C:/Qt/6.7.0/mingw_64/include/QtCore/qyieldcpu.h \
 	C:/Qt/6.7.0/mingw_64/include/QtGui/QAction \
+	C:/Qt/6.7.0/mingw_64/include/QtGui/QImage \
 	C:/Qt/6.7.0/mingw_64/include/QtGui/qaction.h \
 	C:/Qt/6.7.0/mingw_64/include/QtGui/qbitmap.h \
 	C:/Qt/6.7.0/mingw_64/include/QtGui/qbrush.h \
@@ -156,6 +159,7 @@ new_imgproc_autogen/timestamp: \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/QProgressDialog \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/QTreeWidget \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/QTreeWidgetItem \
+	C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWizard \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWizardPage \
 	C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -572,6 +576,8 @@ new_imgproc_autogen/timestamp: \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/filetreethread.h \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/filetreewidget.cpp \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/filetreewidget.h \
+	C:/Users/kkeea/Desktop/Qt/new_imgproc/imgprocess.cpp \
+	C:/Users/kkeea/Desktop/Qt/new_imgproc/imgprocess.h \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/imgshow.cpp \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/imgshow.h \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/main.cpp \
@@ -584,6 +590,8 @@ new_imgproc_autogen/timestamp: \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/removefiledialog.cpp \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/removefiledialog.h \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/res.qrc \
+	C:/Users/kkeea/Desktop/Qt/new_imgproc/toolwidget.cpp \
+	C:/Users/kkeea/Desktop/Qt/new_imgproc/toolwidget.h \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/wizard.cpp \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/wizard.h \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/confirmpage.ui \
@@ -592,5 +600,6 @@ new_imgproc_autogen/timestamp: \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/mainwindow.ui \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/openfilepage.ui \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/removefiledialog.ui \
+	C:/Users/kkeea/Desktop/Qt/new_imgproc/toolwidget.ui \
 	C:/Users/kkeea/Desktop/Qt/new_imgproc/wizard.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe
