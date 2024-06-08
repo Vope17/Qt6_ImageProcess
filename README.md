@@ -16,39 +16,6 @@ This is my Qt practice for image processing software built with QT6, offering a 
 
 ## Installation
 
-### Prerequisites
-
-- **QT6:** Ensure you have QT6 installed on your system. You can download it from [QT's official website](https://www.qt.io/download).
-- **CMake:** Make sure you have CMake installed. You can download it from [CMake's official website](https://cmake.org/download/).
-
-### Steps
-
-1. **Clone the repository:**
-    ```sh
-    git clone https://github.com/your-username/your-repo-name.git
-    cd your-repo-name
-    ```
-
-2. **Create a build directory and navigate into it:**
-    ```sh
-    mkdir build
-    cd build
-    ```
-
-3. **Configure the project using CMake:**
-    ```sh
-    cmake ..
-    ```
-
-4. **Build the project:**
-    ```sh
-    make
-    ```
-
-5. **Run the software:**
-    ```sh
-    ./Carbon
-    ```
 ### Download Executable
 
 If you prefer not to build from source, you can download the pre-built executable directly from the link below:
