@@ -9,6 +9,8 @@
 #include "filetreewidget.h"
 #include "imgshow.h"
 #include "toolwidget.h"
+#include "quantization.h"
+#include "showsplitimg.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -29,7 +31,21 @@ MainWindow::MainWindow(QWidget *parent)
     fileMenu->addAction(saveAsNewFileAction);
     fileMenu->addAction(exitAction);
 
-    // Menu connects
+    QMenu *operateActionMenu = menuBar()->addMenu(tr("操作(&O)"));
+    QAction *redoAction = new QAction(tr("復原"));
+    redoAction->setShortcut(tr("Ctrl+r"));
+    QAction *undoAction = new QAction(tr("重做"));
+    undoAction->setShortcut(tr("Ctrl+z"));
+    QAction *splitWindowAction = new QAction(tr("分割視窗"));
+    operateActionMenu->addAction(undoAction);
+    operateActionMenu->addAction(redoAction);
+    operateActionMenu->addAction(splitWindowAction);
+
+    QMenu *statisticMenu = menuBar()->addMenu(tr("統計(&S)"));
+    QAction *quantizationAction = new QAction(tr("量化"));
+    statisticMenu->addAction(quantizationAction);
+
+    // FileMenu connects
     connect(createAction, &QAction::triggered, this, &MainWindow::SlotCreateFile);
     connect(openAction, &QAction::triggered, this, &MainWindow::SlotOpenFile);
     connect(saveAsNewFileAction, &QAction::triggered, this, &MainWindow::SlotSaveAsNewFile);
@@ -50,7 +66,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->toolLayout->addWidget(_toolWidget);
     toolWidget *_lowToolWidget = dynamic_cast<toolWidget*>(_toolWidget);
     connect(fileImgShow, &imgShow::sendImg, _lowToolWidget, &toolWidget::SlotGetImage);
+    connect(_lowToolWidget, &toolWidget::SigUpdatePreviewImg, fileImgShow, &imgShow::SlotUpdatePreview);
     connect(_lowToolWidget, &toolWidget::SigUpdatePixmap, fileImgShow, &imgShow::SlotUpdatePixmap);
+
+    // OperateMenu connects
+    connect(undoAction, &QAction::triggered, fileImgShow, &imgShow::SlotUndo);
+    connect(redoAction, &QAction::triggered, fileImgShow, &imgShow::SlotRedo);
+    connect(fileImgShow, &imgShow::SigUnRedo, _lowToolWidget, &toolWidget::SlotUnRedo);
+    connect(splitWindowAction, &QAction::triggered, this, &MainWindow::SlotSplitWindow);
+
+    // StatisticMenu connects
+    connect(quantizationAction, &QAction::triggered, this, &MainWindow::SlotShowQuantization);
 }
 
 MainWindow::~MainWindow()
@@ -109,5 +135,23 @@ void MainWindow::SlotSaveAsNewFile(bool)
     QImage img = pm.toImage();
     if (!img.save(fileName))
         return;
+}
+
+void MainWindow::SlotSplitWindow()
+{
+    auto *fileImgShow = dynamic_cast<imgShow*>(_imgShow);
+    QPixmap pm = fileImgShow->GetPixmap();
+    QImage img = pm.toImage();
+    ShowSplitImg *q = new ShowSplitImg(&img);
+    q->show();
+}
+
+void MainWindow::SlotShowQuantization()
+{
+    auto *fileImgShow = dynamic_cast<imgShow*>(_imgShow);
+    QPixmap pm = fileImgShow->GetPixmap();
+    QImage img = pm.toImage();
+    quantization *q = new quantization(&img);
+    q->showMaximized();
 }
 

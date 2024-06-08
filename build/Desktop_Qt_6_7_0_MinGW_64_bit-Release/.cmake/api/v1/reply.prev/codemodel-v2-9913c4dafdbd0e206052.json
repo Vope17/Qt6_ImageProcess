@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-65e7f9e09841ec9a67fe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "new_imgproc",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "new_imgproc::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-new_imgproc-Release-aea4424870062e3c5698.json",
+					"name" : "new_imgproc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "new_imgproc_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-new_imgproc_autogen-Release-da6441e5d3a8fd7bc275.json",
+					"name" : "new_imgproc_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "new_imgproc_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-new_imgproc_autogen_timestamp_deps-Release-5e607f7ed59afc988d21.json",
+					"name" : "new_imgproc_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/kkeea/Desktop/Qt/new_imgproc/build/Desktop_Qt_6_7_0_MinGW_64_bit-Release",
+		"source" : "C:/Users/kkeea/Desktop/Qt/new_imgproc"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

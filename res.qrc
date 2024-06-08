@@ -28,7 +28,6 @@
         <file>icon/previous_hover.png</file>
         <file>icon/previous_press.png</file>
         <file>icon/right.png</file>
-        <file>icon/show.jpg</file>
         <file>icon/slideshow.png</file>
         <file>icon/basic.png</file>
         <file>icon/basic2.png</file>
@@ -36,5 +35,10 @@
         <file>icon/filter.png</file>
         <file>icon/activate_off.png</file>
         <file>icon/activate_on.png</file>
+        <file>icon/leftFlip.png</file>
+        <file>icon/rightFlip.png</file>
+        <file>icon/horizontalFlip.png</file>
+        <file>icon/verticalFlip.png</file>
+        <file>icon/morphology.png</file>
     </qresource>
 </RCC>

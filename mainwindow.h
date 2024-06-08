@@ -29,6 +29,8 @@ private slots:
     void SlotCreateFile(bool);
     void SlotOpenFile(bool);
     void SlotSaveAsNewFile(bool);
+    void SlotSplitWindow();
+    void SlotShowQuantization();
 
 signals:
     void SigOpenFile(const QString &path);

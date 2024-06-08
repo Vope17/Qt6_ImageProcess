@@ -2,7 +2,7 @@
 #define IMGSHOW_H
 
 #include <QDialog>
-
+#include <QStack>
 namespace Ui {
 class imgShow;
 }
@@ -20,13 +20,20 @@ private:
     QString _selectedPath;
     QPixmap _pixmap;
     QImage *_img;
+    QImage *_oldImg;
+    QStack<QImage> _undoHistory;
+    QStack<QImage> _redoHistory;
 
 public slots:
     void SlotShowSelectedImg(const QString &path);
-    void SlotUpdatePixmap(QImage);
+    void SlotUpdatePreview(QImage);
+    void SlotUpdatePixmap();
+    void SlotUndo();
+    void SlotRedo();
 
 signals:
     void sendImg(QImage*);
+    void SigUnRedo(QImage*);
 };
 
 #endif // IMGSHOW_H

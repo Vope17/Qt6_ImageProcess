@@ -1,6 +1,7 @@
 #ifndef OPENFILETHREAD_H
 #define OPENFILETHREAD_H
 
+#include <QDir>
 #include <QThread>
 #include <QTreeWidget>
 class openFileThread : public QThread
@@ -21,7 +22,6 @@ private:
     QTreeWidget *_self;
     bool _threadStop;
     QTreeWidgetItem *_root;
-
 signals:
     void SigUpdateProgress(int);
     void SigFinishProgress(int);

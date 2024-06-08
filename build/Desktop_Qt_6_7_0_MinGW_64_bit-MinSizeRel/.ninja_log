@@ -1,0 +1,23 @@
+# ninja log v5
+3	4678	7389575031509919	new_imgproc_autogen/timestamp	ed108f86ea12403e
+3	4678	7389575031509919	new_imgproc_autogen/mocs_compilation.cpp	ed108f86ea12403e
+3	4678	7389575031509919	C:/Users/kkeea/Desktop/Qt/new_imgproc/build/Desktop_Qt_6_7_0_MinGW_64_bit-MinSizeRel/new_imgproc_autogen/timestamp	ed108f86ea12403e
+3	4678	7389575031509919	C:/Users/kkeea/Desktop/Qt/new_imgproc/build/Desktop_Qt_6_7_0_MinGW_64_bit-MinSizeRel/new_imgproc_autogen/mocs_compilation.cpp	ed108f86ea12403e
+4679	4833	7389575034079918	new_imgproc_autogen/EWIEGA46WW/qrc_res.cpp	92d932a626c9433a
+4679	4833	7389575034079918	C:/Users/kkeea/Desktop/Qt/new_imgproc/build/Desktop_Qt_6_7_0_MinGW_64_bit-MinSizeRel/new_imgproc_autogen/EWIEGA46WW/qrc_res.cpp	92d932a626c9433a
+4864	8930	7389575074699914	CMakeFiles/new_imgproc.dir/confirmpage.cpp.obj	654b680ec60387d4
+4842	9270	7389575078269921	CMakeFiles/new_imgproc.dir/main.cpp.obj	c1907b50ff8ff392
+4853	11348	7389575092498188	CMakeFiles/new_imgproc.dir/wizard.cpp.obj	78032f05e0c63e03
+4962	12677	7389575093538171	CMakeFiles/new_imgproc.dir/filetreeitem.cpp.obj	96f768f06a348b7e
+4834	12683	7389575094618179	CMakeFiles/new_imgproc.dir/openfilepage.cpp.obj	347e3b9443fa4366
+4969	12689	7389575096318172	CMakeFiles/new_imgproc.dir/removefiledialog.cpp.obj	78f8d6d77b3f0e39
+4847	12694	7389575098628193	CMakeFiles/new_imgproc.dir/filetree.cpp.obj	277807b072c9fa58
+4897	12696	7389575107208179	CMakeFiles/new_imgproc.dir/filetreethread.cpp.obj	4d908d1cd4e88f41
+4966	12697	7389575107908173	CMakeFiles/new_imgproc.dir/filetreewidget.cpp.obj	14c28d197c35e5a6
+4838	12699	7389575112148196	CMakeFiles/new_imgproc.dir/mainwindow.cpp.obj	40a78149a6fdc9c2
+12678	13081	7389575116618190	CMakeFiles/new_imgproc.dir/new_imgproc_autogen/EWIEGA46WW/qrc_res.cpp.obj	8b05ed00d25fe6e3
+8936	13637	7389575122038178	CMakeFiles/new_imgproc.dir/imgshow.cpp.obj	6512d6b0d7d86dc
+9271	15000	7389575135538183	CMakeFiles/new_imgproc.dir/openfilethread.cpp.obj	3a21d66b0ba3a005
+11349	16168	7389575147558229	CMakeFiles/new_imgproc.dir/imgprocess.cpp.obj	1e3fb94a4d22d59
+12684	17292	7389575158798164	CMakeFiles/new_imgproc.dir/toolwidget.cpp.obj	50f5c2007237c641
+12689	18686	7389575172736710	CMakeFiles/new_imgproc.dir/new_imgproc_autogen/mocs_compilation.cpp.obj	5f6c5a84023c6845

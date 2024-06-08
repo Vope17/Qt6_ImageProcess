@@ -20,7 +20,6 @@ int main(int argc, char *argv[])
     }
 
     MainWindow w;
-    w.setWindowTitle("ImgProcess");
     w.showMaximized();
     return a.exec();
 }

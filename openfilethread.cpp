@@ -24,13 +24,15 @@ void openFileThread::OpenFileTree(const QString &srcPath, int &fileCount, QTreeW
 void openFileThread::run()
 {
     OpenFileTree(_srcPath, _fileCount, _self);
-    if (_threadStop)
+    if (_threadStop && _root && _self)
     {
         auto index = _self->indexOfTopLevelItem(_root);
         delete _self->takeTopLevelItem(index);
         return;
     }
+    qDebug() << "11";
     emit SigFinishProgress(_fileCount);
+    qDebug() << "44";
 }
 
 void openFileThread::RecursiveFileTree(const QString &srcPath, int &fileCount, QTreeWidget *self, QTreeWidgetItem *root, QTreeWidgetItem *parent, QTreeWidgetItem *preItem)
@@ -48,6 +50,7 @@ void openFileThread::RecursiveFileTree(const QString &srcPath, int &fileCount, Q
         bool IsDir = fileInfo.isDir();
         if (IsDir)
         {
+            qDebug() << "recursive in dir";
             if (_threadStop)
                 return;
 

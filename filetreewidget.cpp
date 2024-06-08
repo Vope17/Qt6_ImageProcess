@@ -153,6 +153,7 @@ void fileTreeWidget::SlotUpdateProgress(int count)
 
 void fileTreeWidget::SlotFinishProgress()
 {
+    qDebug() << "aa";
     if (!_dialogProgress)
         return;
     _dialogProgress->setValue(PROGRESS_MAX);
