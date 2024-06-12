@@ -447,6 +447,9 @@ void toolWidget::SlotOpening()
     if (!_img)
         return;
 
+    if (_ip->_kernel.isEmpty())
+        return;
+
     _ip->Opening(_img);
     emit SigUpdatePixmap();
 }
@@ -454,6 +457,9 @@ void toolWidget::SlotOpening()
 void toolWidget::SlotClosing()
 {
     if (!_img)
+        return;
+
+    if (_ip->_kernel.isEmpty())
         return;
 
     _ip->Closing(_img);
@@ -464,6 +470,10 @@ void toolWidget::SlotBoundaryDetection()
 {
     if (!_img)
         return;
+
+    if (_ip->_kernel.isEmpty())
+        return;
+
     _ip->BoundaryDetection(_img);
     emit SigUpdatePixmap();
 }
@@ -472,6 +482,10 @@ void toolWidget::SlotNoiseRemoval()
 {
     if (!_img)
         return;
+
+    if (_ip->_kernel.isEmpty())
+        return;
+
     _ip->NoiseRemoval(_img);
     emit SigUpdatePixmap();
 }
@@ -613,8 +627,8 @@ void toolWidget::SlotCustomHighPassFilter()
 {
     if (!_img)
         return;
-    //if (_ip->_customHighPassFilterKernelX.isEmpty() || _ip->_customHighPassFilterKernelY.isEmpty())
-     //   return;
+    if (_ip->_customHighPassFilterKernelX.isEmpty() && _ip->_customHighPassFilterKernelY.isEmpty())
+        return;
 
     _ip->CustomHighPassFilter(_img);
     emit SigUpdatePixmap();

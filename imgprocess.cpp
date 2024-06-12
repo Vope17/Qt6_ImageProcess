@@ -35,57 +35,6 @@ void imgProcess::Contrast(int &r, int &g, int &b)
     b = qBound(0, int((b - 127) * _contrastValue / 100.0 + 0.5) + 127, 255);
 }
 
-void imgProcess::Saturation(int &r, int &g, int &b)
-{
-    // RGB to HSV
-    int mx = std::max({r, g, b});
-    int mn = std::min({r, g, b});
-    int V = mx;
-    double C = mx - mn;
-    int H = 0;
-    if (C == 0)
-        H = 0;
-    else if (mx == r && g >= b)
-        H = 60 * (g - b) / C + 0;
-    else if (mx == r && g < b)
-        H = 60 * (g - b) / C + 360;
-    else if (mx == g)
-        H = 60 * (b - r) / C + 120;
-    else if (mx == b)
-        H = 60 * (r - g) / C + 240;
-
-    // HSV to RGB
-    int b_h = H / 60;
-    double f = H / 60 - b_h;
-    double p = V * (1 - _saturationValue);
-    double q = V * (1 - f * _saturationValue);
-    double t = V * (1 - (1 - f) * _saturationValue);
-    int tmp_r, tmp_g, tmp_b;
-
-    switch(b_h)
-    {
-    case 0:
-        r = V, g = t, b = p;
-        break;
-    case 1:
-        r = q, g = V, b = p;
-        break;
-    case 2:
-        r = p, g = V, b = q;
-        break;
-    case 3:
-        r = p, g = q, b = V;
-        break;
-    case 4:
-        r = t, g = p, b = V;
-        break;
-    case 5:
-        r = V, g = p, b = q;
-        break;
-    }
-
-}
-
 void imgProcess::Negative(int &r, int &g, int &b)
 {
     r ^= 255;
@@ -372,7 +321,6 @@ void imgProcess::GrayToAscii(QImage img)
     int w = img.width();
     QColor oldColor;
     int gray;
-    //QString map = " .,:;ox%#@";
     QString map = " ~!@#$%^&*+";
     QString art = "";
     for (int y = 0; y < h; y += 2)
@@ -411,6 +359,8 @@ void imgProcess::Dilation(QImage *img)
     {
         for (int x = 0; x < w; ++x)
         {
+            if (oldImg.pixelColor(x, y).red() == 255)
+                continue;
             bool isDilate = false;
             for (int i = -radiusH; i <= radiusH; ++i)
             {
@@ -437,13 +387,7 @@ void imgProcess::Dilation(QImage *img)
             }
         goOut:
             if (isDilate)
-            {
                 img->setPixelColor(x, y, QColor(255, 255, 255));
-            }
-            else
-            {
-                img->setPixelColor(x, y, QColor(0, 0, 0));
-            }
         }
     }
 }
@@ -465,7 +409,9 @@ void imgProcess::Erosion(QImage *img)
     {
         for (int x = 0; x < img->width(); ++x)
         {
-            bool isOK = true;
+            if (oldImg.pixelColor(x, y).red() == 0)
+                continue;
+            bool isErosion = false;
             for (int i = -radiusH; i <= radiusH; ++i)
             {
                 int WSize = _kernel[i + radiusH].size();
@@ -476,7 +422,7 @@ void imgProcess::Erosion(QImage *img)
                 {
                     if (x + j < 0 || x + j >= w || y + i < 0 || y + i >= h)
                     {
-                        isOK = false;
+                        isErosion = true;
                         goto goOut;
                     }
                     oldColor = oldImg.pixelColor(x + j, y + i);
@@ -486,21 +432,15 @@ void imgProcess::Erosion(QImage *img)
                     {
                         if (_kernel[i + radiusH][j + radiusW] == 1 && gray == 0)
                         {
-                            isOK = false;
+                            isErosion = true;
                             goto goOut;
                         }
                     }
                 }
             }
         goOut:
-            if (!isOK)
-            {
+            if (isErosion)
                 img->setPixelColor(x, y, QColor(0, 0, 0));
-            }
-            else
-            {
-                img->setPixelColor(x, y, QColor(255, 255, 255));
-            }
         }
     }
 }
@@ -663,7 +603,7 @@ void imgProcess::Maximum(QImage *img)
     {
         for (int x = 0; x < w; ++x)
         {
-            mx_r = mx_g = mx_b = 255;
+            mx_r = mx_g = mx_b = 0;
             for (int i = -radius; i <= radius; ++i)
             {
                 for (int j = -radius; j <= radius; ++j)
@@ -672,9 +612,9 @@ void imgProcess::Maximum(QImage *img)
                         continue;
                     oldColor = oldImg.pixelColor(x + j, y + i);
                     old_r = oldColor.red(), old_g = oldColor.green(), old_b = oldColor.blue();
-                    mx_r = qMin(mx_r, old_r);
-                    mx_g = qMin(mx_g, old_g);
-                    mx_b = qMin(mx_b, old_b);
+                    mx_r = qMax(mx_r, old_r);
+                    mx_g = qMax(mx_g, old_g);
+                    mx_b = qMax(mx_b, old_b);
                 }
             }
             r = mx_r;
@@ -702,7 +642,7 @@ void imgProcess::Minimum(QImage *img)
     {
         for (int x = 0; x < img->width(); ++x)
         {
-            mn_r = mn_g = mn_b = 0;
+            mn_r = mn_g = mn_b = 255;
             for (int i = -radius; i <= radius; ++i)
             {
                 for (int j = -radius; j <= radius; ++j)
@@ -711,9 +651,9 @@ void imgProcess::Minimum(QImage *img)
                         continue;
                     oldColor = oldImg.pixelColor(x + j, y + i);
                     old_r = oldColor.red(), old_g = oldColor.green(), old_b = oldColor.blue();
-                    mn_r = qMax(mn_r, old_r);
-                    mn_g = qMax(mn_g, old_g);
-                    mn_b = qMax(mn_b, old_b);
+                    mn_r = qMin(mn_r, old_r);
+                    mn_g = qMin(mn_g, old_g);
+                    mn_b = qMin(mn_b, old_b);
                 }
             }
             r = mn_r;
