@@ -1,7 +1,7 @@
 # QT6 Image Processing Software
 
 ## Description
-
+![](images/carbon_display.png)
 This is my Qt practice for image processing software built with QT6, offering a wide range of functionalities for image manipulation, analysis, and enhancement. It is designed to be user-friendly and efficient, suitable for both novice users and professionals.
 
 ## Features
